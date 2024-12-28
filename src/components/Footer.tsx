@@ -106,7 +106,8 @@ export default function Footer() {
             <p
               className={`text-sm ${isDark ? "text-gray-400" : "text-gray-600"}`}
             >
-              © {new Date().getFullYear()} Revitalize. All rights reserved.
+              © {new Date().getFullYear()} Revitalize Legal, APC. All rights
+              reserved.
             </p>
             <div className="flex space-x-6 mt-4 md:mt-0">
               <NextLink

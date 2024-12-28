@@ -102,7 +102,9 @@ export default function Navbar() {
                     width={40}
                     height={40}
                   />
-                  <span className="hidden sm:inline">Revitalize</span>
+                  <span className="hidden sm:inline">
+                    Revitalize Legal, APC
+                  </span>
                 </div>
               </NextLink>
             </div>
