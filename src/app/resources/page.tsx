@@ -3,8 +3,8 @@
 import * as React from "react";
 import { useState, useEffect } from "react";
 import { FileText, BookOpen, GraduationCap, Download } from "lucide-react";
-import Navbar from "../../components/Navbar";
-import Footer from "../../components/Footer";
+import Navbar from "@/components/Navbar";
+import Footer from "@/components/Footer";
 
 export default function Resources() {
   const [isDark, setIsDark] = useState(false);
@@ -59,26 +59,26 @@ export default function Resources() {
           <div
             className={`p-6 rounded-lg ${isDark ? "bg-gray-900" : "bg-gray-100"}`}
           >
-            <FileText className="w-12 h-12 text-yellow-500 mb-4" />
+            <FileText className="w-12 h-12 text-[#AB7132] mb-4" />
             <h2 className="text-2xl font-serif mb-4">Property Guides</h2>
             <ul className="space-y-3">
               <li>
-                <a href="#" className="text-yellow-500 hover:underline">
+                <a href="#" className="text-[#AB7132] hover:underline">
                   California Property Purchase Guide
                 </a>
               </li>
               <li>
-                <a href="#" className="text-yellow-500 hover:underline">
+                <a href="#" className="text-[#AB7132] hover:underline">
                   Commercial Lease Agreements
                 </a>
               </li>
               <li>
-                <a href="#" className="text-yellow-500 hover:underline">
+                <a href="#" className="text-[#AB7132] hover:underline">
                   Property Development Regulations
                 </a>
               </li>
               <li>
-                <a href="#" className="text-yellow-500 hover:underline">
+                <a href="#" className="text-[#AB7132] hover:underline">
                   Zoning Law Overview
                 </a>
               </li>
@@ -87,28 +87,28 @@ export default function Resources() {
 
           {/* Legal Updates */}
           <div
-            className={`p-6 rounded-lg ${isDark ? "bg-gray-900" : "bg-gray-100"}`}
+            className={`p-6 rounded-lg ${isDark ? "bg-gray-900" : "bg-gray-100 text-gray"}`}
           >
-            <BookOpen className="w-12 h-12 text-yellow-500 mb-4" />
+            <BookOpen className="w-12 h-12 text-[#AB7132] mb-4" />
             <h2 className="text-2xl font-serif mb-4">Legal Updates</h2>
             <ul className="space-y-3">
               <li>
-                <a href="#" className="text-yellow-500 hover:underline">
+                <a href="#" className="text-[#AB7132] hover:underline">
                   2024 California Property Law Changes
                 </a>
               </li>
               <li>
-                <a href="#" className="text-yellow-500 hover:underline">
+                <a href="#" className="text-[#AB7132] hover:underline">
                   Recent Real Estate Case Law
                 </a>
               </li>
               <li>
-                <a href="#" className="text-yellow-500 hover:underline">
+                <a href="#" className="text-[#AB7132] hover:underline">
                   Environmental Regulations Update
                 </a>
               </li>
               <li>
-                <a href="#" className="text-yellow-500 hover:underline">
+                <a href="#" className="text-[#AB7132] hover:underline">
                   Property Tax Law Changes
                 </a>
               </li>
@@ -119,26 +119,26 @@ export default function Resources() {
           <div
             className={`p-6 rounded-lg ${isDark ? "bg-gray-900" : "bg-gray-100"}`}
           >
-            <GraduationCap className="w-12 h-12 text-yellow-500 mb-4" />
+            <GraduationCap className="w-12 h-12 text-[#AB7132] mb-4" />
             <h2 className="text-2xl font-serif mb-4">Educational Materials</h2>
             <ul className="space-y-3">
               <li>
-                <a href="#" className="text-yellow-500 hover:underline">
+                <a href="#" className="text-[#AB7132] hover:underline">
                   Property Rights Fundamentals
                 </a>
               </li>
               <li>
-                <a href="#" className="text-yellow-500 hover:underline">
+                <a href="#" className="text-[#AB7132] hover:underline">
                   Due Diligence Checklist
                 </a>
               </li>
               <li>
-                <a href="#" className="text-yellow-500 hover:underline">
+                <a href="#" className="text-[#AB7132] hover:underline">
                   Property Investment Basics
                 </a>
               </li>
               <li>
-                <a href="#" className="text-yellow-500 hover:underline">
+                <a href="#" className="text-[#AB7132] hover:underline">
                   Real Estate Contract Terms
                 </a>
               </li>
@@ -153,13 +153,13 @@ export default function Resources() {
             <div
               className={`p-6 rounded-lg flex items-start ${isDark ? "bg-gray-900" : "bg-gray-100"}`}
             >
-              <Download className="w-6 h-6 text-yellow-500 mr-4 flex-shrink-0" />
+              <Download className="w-6 h-6 text-[#AB7132] mr-4 flex-shrink-0" />
               <div>
                 <h3 className="text-xl mb-2">Property Purchase Checklist</h3>
                 <p className="mb-4">
                   Comprehensive guide for property buyers in California.
                 </p>
-                <button className="text-yellow-500 hover:underline">
+                <button className="text-[#AB7132] hover:underline">
                   Download PDF
                 </button>
               </div>
@@ -167,13 +167,13 @@ export default function Resources() {
             <div
               className={`p-6 rounded-lg flex items-start ${isDark ? "bg-gray-900" : "bg-gray-100"}`}
             >
-              <Download className="w-6 h-6 text-yellow-500 mr-4 flex-shrink-0" />
+              <Download className="w-6 h-6 text-[#AB7132] mr-4 flex-shrink-0" />
               <div>
                 <h3 className="text-xl mb-2">Property Development Guide</h3>
                 <p className="mb-4">
                   Essential information for property developers.
                 </p>
-                <button className="text-yellow-500 hover:underline">
+                <button className="text-[#AB7132] hover:underline">
                   Download PDF
                 </button>
               </div>
@@ -195,7 +195,7 @@ export default function Resources() {
               placeholder="Enter your email"
               className="px-4 py-2 rounded-md border focus:outline-none focus:ring-2 focus:ring-yellow-500"
             />
-            <button className="bg-yellow-500 hover:bg-yellow-600 text-white px-6 py-2 rounded-md transition-colors duration-200">
+            <button className="bg-[#AB7132] hover:bg-yellow-600 text-white px-6 py-2 rounded-md transition-colors duration-200">
               Subscribe
             </button>
           </div>
