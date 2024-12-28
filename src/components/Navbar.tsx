@@ -82,7 +82,7 @@ export default function Navbar() {
     <>
       <nav
         className={`fixed w-full top-0 left-0 z-50 transition-all duration-300 ${
-          isDark ? "bg-black/50" : "bg-white/50"
+          isDark ? "bg-black/50" : "bg-white"
         } backdrop-blur-md shadow-lg ${
           visible ? "translate-y-0" : "-translate-y-full"
         }`}
