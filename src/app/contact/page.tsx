@@ -65,8 +65,8 @@ export default function Contact() {
         <div className="text-center mb-16">
           <h1 className="text-4xl md:text-5xl font-serif mb-6">Contact Us</h1>
           <p className="text-lg max-w-3xl mx-auto">
-            Get in touch with our real estate legal experts. We&aposre here to
-            help protect your property interests in California.
+            Get in touch with our real estate legal experts. We are here to help
+            protect your property interests in California.
           </p>
         </div>
 
@@ -76,38 +76,71 @@ export default function Contact() {
             <h2 className="text-3xl font-serif mb-6">Get In Touch</h2>
 
             {/* Contact Cards - Now with black background */}
-            <div className="p-6 rounded-lg bg-black flex items-start space-x-4">
+            <div className="p-6 rounded-lg bg-opacity-0 flex items-start space-x-4">
               <Mail className="w-6 h-6 text-[#AB7132] flex-shrink-0" />
               <div>
-                <h3 className="font-medium mb-1 text-[#DFE0DF]">Email</h3>
-                <p className="text-[#B9A89A]">contact@revitalize.com</p>
+                <h3
+                  className={`font-medium mb-1 ${isDark ? "text-[#DFE0DF]" : "text-[#36454F]"} `}
+                >
+                  Email
+                </h3>
+                <p
+                  className={` ${isDark ? "text-[#DFE0DF]" : "text-[#AB7132]"} `}
+                >
+                  contact@revitalize.com
+                </p>
               </div>
             </div>
 
-            <div className="p-6 rounded-lg bg-black flex items-start space-x-4">
+            <div className="p-6 rounded-lg bg-opacity-0 flex items-start space-x-4">
               <Phone className="w-6 h-6 text-[#AB7132] flex-shrink-0" />
               <div>
-                <h3 className="font-medium mb-1 text-[#DFE0DF]">Phone</h3>
-                <p className="text-[#B9A89A]">(555) 123-4567</p>
+                <h3
+                  className={`font-medium mb-1 ${isDark ? "text-[#DFE0DF]" : "text-[#36454F]"} `}
+                >
+                  Phone
+                </h3>
+
+                <p
+                  className={` ${isDark ? "text-[#DFE0DF]" : "text-[#AB7132]"} `}
+                >
+                  (555) 123-4567
+                </p>
               </div>
             </div>
 
-            <div className="p-6 rounded-lg bg-black flex items-start space-x-4">
+            <div className="p-6 rounded-lg bg-opacity-0 flex items-start space-x-4">
               <MapPin className="w-6 h-6 text-[#AB7132] flex-shrink-0" />
               <div>
-                <h3 className="font-medium mb-1 text-[#DFE0DF]">Location</h3>
-                <p className="text-[#B9A89A]">123 Legal Street</p>
-                <p className="text-[#B9A89A]">Los Angeles, CA 90021</p>
+                <h3
+                  className={`font-medium mb-1 ${isDark ? "text-[#DFE0DF]" : "text-[#36454F]"} `}
+                >
+                  Location
+                </h3>
+                <p
+                  className={` ${isDark ? "text-[#DFE0DF]" : "text-[#AB7132]"} `}
+                >
+                  123 Legal Street
+                </p>
+                <p
+                  className={` ${isDark ? "text-[#DFE0DF]" : "text-[#AB7132]"} `}
+                >
+                  Los Angeles, CA 90021
+                </p>
               </div>
             </div>
 
-            <div className="p-6 rounded-lg bg-black flex items-start space-x-4">
+            <div className="p-6 rounded-lg bg-opacity-0 flex items-start space-x-4">
               <Clock className="w-6 h-6 text-[#AB7132] flex-shrink-0" />
               <div>
-                <h3 className="font-medium mb-1 text-[#DFE0DF]">
+                <h3
+                  className={`font-medium mb-1 ${isDark ? "text-[#DFE0DF]" : "text-[#36454F]"} `}
+                >
                   Business Hours
                 </h3>
-                <p className="text-[#B9A89A]">
+                <p
+                  className={` ${isDark ? "text-[#DFE0DF]" : "text-[#AB7132]"} `}
+                >
                   Monday - Friday: 9:00 AM - 6:00 PM
                 </p>
                 <p className="text-[#B9A89A]">Saturday - Sunday: Closed</p>
