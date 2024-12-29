@@ -1,101 +1,101 @@
 "use client";
 
 import * as React from "react";
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef, Suspense } from "react";
 import NextLink from "next/link";
 
-type MediaQueryList = {
-  matches: boolean;
-  addEventListener(
-    type: string,
-    listener: (e: { matches: boolean }) => void,
-  ): void;
-  removeEventListener(
-    type: string,
-    listener: (e: { matches: boolean }) => void,
-  ): void;
-};
+// Loading placeholder
+const LoadingPlaceholder = () => (
+  <div className="absolute inset-0 bg-black/90 animate-pulse" />
+);
 
-export default function Hero() {
-  const [
-    _isDark /* eslint-disable-line @typescript-eslint/no-unused-vars */,
-    setIsDark,
-  ] = useState(false);
-  const videoRef = useRef<HTMLVideoElement>(null); // Fixed type here
+// Separate video component with responsive source handling
+const VideoBackground = ({ onLoadStart }: { onLoadStart: () => void }) => {
+  const videoRef = useRef<HTMLVideoElement>(null);
+  const [isMobile, setIsMobile] = useState(false);
 
-  // Separate useEffect for dark mode
   useEffect(() => {
-    if (typeof globalThis !== "undefined" && "matchMedia" in globalThis) {
-      const darkModeQuery = (
-        globalThis.matchMedia as (query: string) => MediaQueryList
-      )("(prefers-color-scheme: dark)");
-      setIsDark(darkModeQuery.matches);
+    // Check for mobile screen size
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 768); // 768px is typical tablet/mobile breakpoint
+    };
 
-      const updateDarkMode = (e: { matches: boolean }) => setIsDark(e.matches);
-      darkModeQuery.addEventListener("change", updateDarkMode);
+    // Initial check
+    checkMobile();
 
-      return () => darkModeQuery.removeEventListener("change", updateDarkMode);
-    }
+    // Add resize listener
+    window.addEventListener("resize", checkMobile);
+
+    // Cleanup
+    return () => window.removeEventListener("resize", checkMobile);
   }, []);
 
-  // Video useEffect with proper type
   useEffect(() => {
     const video = videoRef.current;
     if (video) {
+      video.preload = "auto";
       video.playbackRate = 0.8;
 
-      video.addEventListener("loadeddata", () => {
-        if (video) video.playbackRate = 0.8;
-      });
+      const handleCanPlay = () => {
+        onLoadStart();
+        video.play().catch(console.error);
+      };
 
-      video.addEventListener("play", () => {
-        if (video) video.playbackRate = 0.8;
-      });
+      video.addEventListener("canplay", handleCanPlay);
+      return () => video.removeEventListener("canplay", handleCanPlay);
     }
-  }, []);
+  }, [onLoadStart]);
 
-  useEffect(() => {}, []);
+  // Change source based on screen size
+  const videoSource = isMobile
+    ? "/videos/landing-page-mobile.mp4"
+    : "/videos/landing-page-compressed.mp4";
+
+  return (
+    <video
+      ref={videoRef}
+      autoPlay
+      muted
+      loop
+      playsInline
+      className="absolute inset-0 w-full h-full object-cover"
+      // poster="/videos/poster-image.jpg" // Optional: Add a poster image
+    >
+      <source src={videoSource} type="video/mp4" />
+    </video>
+  );
+};
+
+export default function Hero() {
+  const [isVideoLoaded, setIsVideoLoaded] = useState(false);
 
   return (
     <div className="relative h-screen">
-      {/* Video background */}
-      <video
-        ref={videoRef}
-        autoPlay
-        muted
-        loop
-        playsInline
-        className="absolute inset-0 w-full h-full object-cover"
-      >
-        <source src="/videos/landing-page-compressed.mp4" type="video/mp4" />
-      </video>
+      <Suspense fallback={<LoadingPlaceholder />}>
+        {!isVideoLoaded && <LoadingPlaceholder />}
+        <VideoBackground onLoadStart={() => setIsVideoLoaded(true)} />
+      </Suspense>
 
-      {/* Dark overlay */}
       <div className="absolute inset-0 bg-black/60" />
 
-      {/* Content container */}
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full">
         <div className="flex flex-col justify-center h-full pt-20">
-          {/* Small header text */}
-          <div className="text-sm uppercase tracking-wider mb-4 text-gray-300">
+          <div className="text-sm uppercase tracking-wider mb-4 text-gray-300 animate-fade-in">
             Revitalize Law Offices
           </div>
 
-          {/* Main heading */}
-          <h1 className="text-5xl sm:text-6xl lg:text-7xl font-serif mb-6 text-white">
+          <h1 className="text-5xl sm:text-6xl lg:text-7xl font-serif mb-6 text-white animate-fade-in delay-100">
             Protecting What
             <br />
             You Value Most
           </h1>
 
-          {/* Description text */}
-          <p className="max-w-2xl text-lg sm:text-xl mb-8 text-gray-300">
+          <p className="max-w-2xl text-lg sm:text-xl mb-8 text-gray-300 animate-fade-in delay-200">
             Experience, preparation, and advocacy are critical to protecting
-            your properties as a landlord in Southern California{" "}
+            your properties as a landlord in Southern California
           </p>
 
-          {/* CTA Button */}
-          <div className="flex flex-wrap gap-4">
+          <div className="flex flex-wrap gap-4 animate-fade-in delay-300">
             <NextLink
               href="/contact"
               className="bg-[#AB7132] hover:bg-[#FBC000] text-white px-8 py-3 rounded-md transition-colors duration-200"

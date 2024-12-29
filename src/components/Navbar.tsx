@@ -42,13 +42,16 @@ export default function Navbar() {
     }
   }, []);
 
-  // Handle scroll behavior
+  // Handle scroll behavior with fix for top of page
   useEffect(() => {
     const controlNavbar = () => {
       if (typeof window !== "undefined") {
         const currentScrollY = window.scrollY;
 
-        if (currentScrollY > lastScrollY) {
+        if (currentScrollY === 0) {
+          // At top of page
+          setVisible(true);
+        } else if (currentScrollY > lastScrollY) {
           // Scrolling down
           setVisible(false);
         } else {
@@ -62,15 +65,17 @@ export default function Navbar() {
 
     if (typeof window !== "undefined") {
       window.addEventListener("scroll", controlNavbar);
-
-      // Cleanup
       return () => {
         window.removeEventListener("scroll", controlNavbar);
       };
     }
   }, [lastScrollY]);
 
-  // Filter out Home link when on home page
+  // Close mobile menu on route change
+  useEffect(() => {
+    setIsOpen(false);
+  }, [pathname]);
+
   const filteredNavigationItems = navigationItems.filter((item) => {
     if (pathname === "/" && item.name === "Home") {
       return false;
@@ -134,7 +139,7 @@ export default function Navbar() {
             </div>
 
             {/* Mobile menu button */}
-            <div className="md:hidden">
+            <div className="md:hidden z-50">
               <button
                 onClick={() => setIsOpen(!isOpen)}
                 className={`inline-flex items-center justify-center p-2 rounded-md ${
@@ -156,9 +161,13 @@ export default function Navbar() {
 
           {/* Mobile Navigation */}
           <div
-            className={`md:hidden transition-max-height duration-300 ease-in-out ${
-              isOpen ? "max-h-96" : "max-h-0"
-            } overflow-hidden`}
+            className={`md:hidden fixed left-0 right-0 top-[64px] sm:top-[80px] ${
+              isDark ? "bg-black/95" : "bg-white/95"
+            } transition-all duration-300 ease-in-out ${
+              isOpen
+                ? "opacity-100 translate-y-0"
+                : "opacity-0 -translate-y-4 pointer-events-none"
+            } backdrop-blur-md z-50`}
           >
             <div className="px-2 pt-2 pb-3 space-y-1">
               {filteredNavigationItems.map((item) => {
@@ -167,6 +176,7 @@ export default function Navbar() {
                   <NextLink
                     key={item.name}
                     href={item.href}
+                    onClick={() => setIsOpen(false)}
                     className={`block ${
                       isDark
                         ? `${isActive ? "text-[#AB7132]" : "text-white"} hover:text-[#AB7132] hover:bg-black/20`
@@ -184,7 +194,8 @@ export default function Navbar() {
         {/* Backdrop overlay for mobile menu */}
         {isOpen && (
           <div
-            className="fixed inset-0 bg-black bg-opacity-25 md:hidden"
+            className="fixed inset-0 bg-black/25 md:hidden"
+            style={{ zIndex: 40 }}
             onClick={() => setIsOpen(false)}
             aria-hidden="true"
           />
