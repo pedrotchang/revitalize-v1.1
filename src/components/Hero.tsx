@@ -49,7 +49,7 @@ const VideoBackground = ({ onLoadStart }: { onLoadStart: () => void }) => {
   // Change source based on screen size
   const videoSource = isMobile
     ? "/videos/landing-page-mobile.mp4"
-    : "/videos/landing-page-compressed.mp4";
+    : "/videos/landing-page.mp4";
 
   return (
     <video
