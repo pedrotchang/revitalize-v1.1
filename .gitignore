@@ -40,4 +40,4 @@ yarn-error.log*
 next-env.d.ts
 
 # video
-/public/video/landing-page-4k.mp4
+public/video/landing-page-4k.mp4
