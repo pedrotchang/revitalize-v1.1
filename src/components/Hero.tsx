@@ -48,8 +48,8 @@ const VideoBackground = ({ onLoadStart }: { onLoadStart: () => void }) => {
 
   // Change source based on screen size
   const videoSource = isMobile
-    ? "/videos/landing-page-mobile.mp4"
-    : "/videos/landing-page.mp4";
+    ? "/videos/landing-page.webm"
+    : "/videos/landing-page.webm";
 
   return (
     <video
@@ -61,7 +61,7 @@ const VideoBackground = ({ onLoadStart }: { onLoadStart: () => void }) => {
       className="absolute inset-0 w-full h-full object-cover"
       // poster="/videos/poster-image.jpg" // Optional: Add a poster image
     >
-      <source src={videoSource} type="video/mp4" />
+      <source src={videoSource} type="video/webm" />
     </video>
   );
 };
