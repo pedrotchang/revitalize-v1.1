@@ -23,7 +23,7 @@ const CookieAlert = () => {
         <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
           <div className="text-sm">
             We use cookies to enhance your browsing experience and analyze our
-            traffic. By clicking &ldquoAccept&ldquo, you consent to our use of
+            traffic. By clicking Accept, you consent to our use of
             cookies.
           </div>
           <div className="flex gap-4">
