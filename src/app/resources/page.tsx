@@ -252,4 +252,4 @@ export default function Resources() {
       </div>
       <Footer />
     </main>
-  );
+  )
