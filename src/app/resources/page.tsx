@@ -7,6 +7,13 @@ import NextLink from "next/link";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 
+// Define interface for FAQ props
+interface FAQProps {
+  question: string;
+  answer: string;
+  isDark: boolean;
+}
+
 // FAQ Component
 const FAQ = ({ question, answer, isDark }) => {
   const [isOpen, setIsOpen] = useState(false);
