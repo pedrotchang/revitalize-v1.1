@@ -139,33 +139,7 @@ export default function Resources() {
             }`}
           >
             <h2 className="text-2xl font-serif mb-4">For Landlords</h2>
-            <ul className="space-y-3">
-              <li>
-                <a href="/articles/landlord-guide-evictions" className="text-[#AB7132] hover:text-[#FBC000] transition-colors duration-200">
-                  Landlord&apos;s Guide to Understanding Evictions in California
-                </a>
-              </li>
-              <li>
-                <a href="/articles/landlord-eviction-mistakes" className="text-[#AB7132] hover:text-[#FBC000] transition-colors duration-200">
-                  Top 5 Mistakes Landlords Make During Evictions
-                </a>
-              </li>
-              <li>
-                <a href="/articles/rent-control-laws" className="text-[#AB7132] hover:text-[#FBC000] transition-colors duration-200">
-                  Understanding Rent Control Laws in California
-                </a>
-              </li>
-              <li>
-                <a href="/articles/security-deposits" className="text-[#AB7132] hover:text-[#FBC000] transition-colors duration-200">
-                  Tips for Landlords to Handle Security Deposits
-                </a>
-              </li>
-              <li>
-                <a href="/articles/minimize-tenant-disputes" className="text-[#AB7132] hover:text-[#FBC000] transition-colors duration-200">
-                  How Landlords Can Minimize Risks of Tenant Disputes
-                </a>
-              </li>
-            </ul>
+            <p className="text-sm mb-4">Coming soon: Detailed guides and resources for landlords.</p>
           </div>
 
           {/* For Tenants */}
@@ -175,33 +149,7 @@ export default function Resources() {
             }`}
           >
             <h2 className="text-2xl font-serif mb-4">For Tenants</h2>
-            <ul className="space-y-3">
-              <li>
-                <a href="/articles/tenant-eviction-tips" className="text-[#AB7132] hover:text-[#FBC000] transition-colors duration-200">
-                  Top Tips for Tenants Facing Eviction in California
-                </a>
-              </li>
-              <li>
-                <a href="/articles/tenant-eviction-defenses" className="text-[#AB7132] hover:text-[#FBC000] transition-colors duration-200">
-                  Common Defenses Tenants Can Use in Eviction Cases
-                </a>
-              </li>
-              <li>
-                <a href="/articles/lease-agreement-guide" className="text-[#AB7132] hover:text-[#FBC000] transition-colors duration-200">
-                  A Tenant&apos;s Guide to Understanding Lease Agreements
-                </a>
-              </li>
-              <li>
-                <a href="/articles/request-repairs" className="text-[#AB7132] hover:text-[#FBC000] transition-colors duration-200">
-                  Steps Tenants Can Take to Request Repairs
-                </a>
-              </li>
-              <li>
-                <a href="/articles/moving-out-checklist" className="text-[#AB7132] hover:text-[#FBC000] transition-colors duration-200">
-                  Tenant&apos;s Checklist Before Moving Out
-                </a>
-              </li>
-            </ul>
+            <p className="text-sm mb-4">Coming soon: Detailed guides and resources for tenants.</p>
           </div>
         </div>
 
@@ -252,4 +200,5 @@ export default function Resources() {
       </div>
       <Footer />
     </main>
-  )
+  );
+}
