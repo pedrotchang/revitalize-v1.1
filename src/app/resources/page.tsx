@@ -15,7 +15,7 @@ interface FAQProps {
 }
 
 // FAQ Component
-const FAQ = ({ question, answer, isDark }) => {
+const FAQ = ({ question, answer, isDark }): FAQProps => {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
